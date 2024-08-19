@@ -7,7 +7,7 @@ const fetchOttDetails = async (imdbId) => {
     const response = await axios.get('https://ott-details.p.rapidapi.com/gettitleDetails', {
       params: { imdbid: imdbId },
       headers: {
-        'x-rapidapi-key': '2ae1ca44e6msh5bc7c263525f03ep1cc412jsnb2b27dec86d0',
+        'x-rapidapi-key': 'ddd234b609msh1b2b7ed8a04c2c8p13f898jsna0f3045171cd',
         'x-rapidapi-host': 'ott-details.p.rapidapi.com'
       }
     });
