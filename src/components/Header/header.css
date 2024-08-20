@@ -25,7 +25,8 @@ a > span:hover {
 }
 
 .header__icon {
-    width: 80px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
 }
 
@@ -51,7 +52,7 @@ a > span:hover {
     border: none;
     box-sizing: border-box;
     border-radius: 2.5em;
-    background-color: #040714; /* Inside background color */
+    background-color:transparent; /* Inside background color */
     color: whitesmoke; /* Input text color */
     transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
 }
@@ -111,3 +112,4 @@ a > span:hover {
     opacity: 0;
     transition: transform 150ms ease-out, opacity 150ms ease-out;
 }
+

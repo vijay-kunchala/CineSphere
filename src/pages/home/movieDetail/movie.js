@@ -17,6 +17,7 @@ import { ReactComponent as JioCinemaIcon} from '../../../assets/icons/jio-cinema
 import { ReactComponent as NetflixIcon} from '../../../assets/icons/netflix.svg'
 import { ReactComponent as ParamountIcon} from '../../../assets/icons/paramount.svg'
 import SunNxtIcon from '../../../assets/icons/sunnxt.png';
+import TataIcon from '../../../assets/icons/tata sky.png';
 import { ReactComponent as VootIcon} from '../../../assets/icons/Voot.svg'
 import { ReactComponent as Zee5Icon} from '../../../assets/icons/zee5-seeklogo.svg'
 import { ReactComponent as MicrosoftIcon} from '../../../assets/icons/microsoft.svg'
@@ -60,7 +61,7 @@ const Movie = () => {
             case 'itunes':
             case 'apple-tv-plus': return <AppleIcon className="platform-icon" />;
             case 'crunchyroll': return <crunchyIcon className="platform-icon" />;
-            case 'disney plus':
+            case 'disneyplus':
             case 'disney+': return <DisneyIcon className="platform-icon" />;
             case 'hotstar':
             case 'disney+hotstar': return <HotstarIcon className="platform-icon" />;
@@ -82,6 +83,7 @@ const Movie = () => {
             case 'sony_liv': return <img src={SonyLivIcon} alt="Sony Liv" className="platform-icon" />;
             case 'sun nxt':
             case 'sunnxt': return <img src={SunNxtIcon} alt="Sun NXT" className="platform-icon" />;
+            case 'tatasky': return <img src={TataIcon} alt="Tata play" className="platform-icon" />;
             case 'voot': return <VootIcon className="platform-icon" />;
             case 'zee5': return <Zee5Icon className="platform-icon" />;
             case 'microsoft': return <MicrosoftIcon className="platform-icon" />;

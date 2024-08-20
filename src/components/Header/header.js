@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./header.css"
 import { Link, useNavigate } from "react-router-dom"
+import  HeaderIcon from '../../assets/icons/logo 2.svg'
 
 const Header = () => {
     const [query, setQuery] = useState("");
@@ -24,7 +25,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="headerLeft">
-                <Link to="/"><img className="header__icon" src="https://cdn5.vectorstock.com/i/1000x1000/09/09/movie-slide-film-logo-vector-41370909.jpg" alt=""/></Link>
+                <Link to="/"><img className="header__icon" src={HeaderIcon} alt="Logo" /></Link>
                 <Link to="/movies/popular" style={{textDecoration: "none"}}><span>Popular</span></Link>
                 <Link to="/movies/top_rated" style={{textDecoration: "none"}}><span>Top Rated</span></Link>
                 <Link to="/movies/upcoming" style={{textDecoration: "none"}}><span>Upcoming</span></Link>

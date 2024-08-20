@@ -15,6 +15,8 @@
     height: 500px;
     object-fit: cover;
     object-position: 0 35%;
+    opacity: 90%;
+    
 }
 
 .movie__detail {
@@ -153,7 +155,6 @@
 
 .movie__ottPlatforms {
     width: 100%;
-    /* background-color: rgba(0, 0, 0, 0.7); */
     padding: 20px;
     border-radius: 10px;
 }
