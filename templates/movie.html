@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/movie.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--   FONTS START -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+    <!--   FONTS END -->
+    <title>Onward - Pixar Movie Profile</title>
+  </head>
+  
+  
+  <body >
+    
+    <div id="background-container">
+      <!-- Your content goes here -->
+    </div>
+    <nav>
+      <a href="{{ url_for('find') }}">search</a>
+      <a href="{{ url_for('login') }}" >Home</a>
+      <a href="" >My Movies</a>
+    </nav>
+  
+    <div class="page-container">
+  
+      <header>
+        <h2><u></u></h2>
+      </header> 
+  
+      <section class="hero-section">
+        <div class="hero-container">
+          <div class="hero-img">
+            <img src="{{ ott_data.imageurl[0] }}" alt="Movie Poster">
+          </div>
+  
+          <div class="hero-summary">
+            <h1>{{ movie_data.title }} <span style="font-size:50%;">({{ movie_data.Year }})</span></h1>
+            <q><strong>IMDb Rating</strong><i>{{ movie_data.imdbRating }}</i></q>
+            <hr>
+            <p>{{ movie_data.Plot }}</p>
+        </div>
+    </div>
+      </section>
+  
+      <section class="info-section">
+        <div class="info-container">
+          <div class="info-box">
+            {% macro display_genre(genres) %}
+              {% if genres %}
+                {{ genres[0] }}
+                 {% if genres|length > 1 %}
+                  , 
+                  {{ display_genre(genres[1:]) }}
+                {% endif %}
+              {% endif %}
+            {% endmacro %}
+            <ul>
+                <p><strong>Director:</strong> {{ movie_data.Director }}</p>
+                <p>Writers: {{ movie_data.Writer }}</p>
+                <p><strong>Genre:</strong> {{ display_genre(ott_data.genre) }}</p>
+                <p><strong>Starring:</strong> {{ movie_data.Actors }}</p>
+                <p><strong>Awards:</strong> {{ movie_data.Awards }}</p>
+                <!-- <p><strong>imdbID:</strong>{{ movie_data.imdbID}}</p> -->
+                {% macro display_platforms(platforms) %}
+                {% if platforms %}
+                    <div class="platform-items">
+                        {# Loop through platforms and display them with images #}
+                        {% for platform in platforms %}
+                            {% if platform.img %}
+                                <div class="platform-item">
+                                    <a href="{{ platform.url }}">
+                                        <img src="{{ platform.img }}" alt="{{ platform.platform }}" />
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endmacro %}
+            
+            <div class="country-platforms">
+                {% if ott_data.streamingAvailability_country_IN %}
+                    <!-- Display streaming platforms (IN) -->
+                    <p><strong>Streaming Platforms (IN):</strong> {{ display_platforms(ott_data.streamingAvailability_country_IN) }}</p>
+                {% endif %}
+                
+                {% if ott_data.streamingAvailability_country_US %}
+                    <!-- Display streaming platforms (US) -->
+                    <p><strong>Streaming Platforms (US):</strong> {{ display_platforms(ott_data.streamingAvailability_country_US) }}</p>
+                {% endif %}
+            </div>
+            
+            
+              
+              
+        </div>
+      </section>
+  
+      <a href="/insert_movie_data/{{ movie_data['Title'] }}/{{ movie_data['imdbID'] }}" class="Button" id="buyButton" onclick="markAsDone()">BUY</a>
+    </div>
+    <script>
+       function markAsDone() {
+      // Get the button element by its ID
+      var buyButton = document.getElementById("buyButton");
+
+      // Change the button text to "Done"
+      buyButton.innerText = "Done";
+
+      // You can also perform other actions here, such as processing the purchase.
+  }
+
+  var animateButton = function(e) {
+
+e.preventDefault;
+//reset animation
+e.target.classList.remove('animate');
+
+e.target.classList.add('animate');
+setTimeout(function(){
+  e.target.classList.remove('animate');
+},700);
+};
+
+var bubblyButtons = document.getElementsByClassName("Button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+bubblyButtons[i].addEventListener('click', animateButton, false);
+}
+    </script>
+  </body>

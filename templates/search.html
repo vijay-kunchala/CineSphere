@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/search.css">
+</head>
+<body>
+  <form onsubmit="" role="search" method="post">
+    <label class="search" for="search">Search for stuff</label>
+    <input id="search" type="search" name="search" placeholder="Search..." autofocus required />
+    <button type="submit" value="search">Go</button>
+  </form>
+  
+  
+    {% if movie_data %}
+      {% if movie_data.Response == "True" %}
+        <h2>Movie Details</h2>
+        <p><strong>Title:</strong> {{ movie_data.Title }}</p>
+        <p><strong>Year:</strong> {{ movie_data.Year }}</p>
+        <p><strong>Plot:</strong> {{ movie_data.Plot }}</p>
+        <p><strong>IMDb Rating:</strong> {{ movie_data.imdbRating }}</p>
+        <p><strong>poster url:</strong> {{ movie_data.Poster }}</p>
+         Add more fields as per your requirement
+      {% else %}
+        <p>No movie found or an error occurred.</p>
+      {% endif %}
+    {% endif %}
+  
+  </div>
+
+
+  
+  </body>
+  </html>
